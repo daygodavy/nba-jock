@@ -88,7 +88,7 @@ with open('nba-jock.csv', 'w', encoding='utf8', newline='') as f:
     totalPoints = 0
     if row is not None:
       # scrape player name
-      # playerName = row.find('td', class_="left").text
+      playerName = row.find('td', class_="left").text
 
       # tallying criteria points for FGA per game
       playerFGA = row.find('td', {'data-stat' : 'fga_per_g'}).text
@@ -133,6 +133,9 @@ with open('nba-jock.csv', 'w', encoding='utf8', newline='') as f:
           totalPoints += 1
 
       jockDict2[playerName] = totalPoints
+
+  # print(jockDict2)
+  # exit()
 
 
   # request for advanced stats
