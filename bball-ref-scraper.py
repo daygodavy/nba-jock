@@ -4,6 +4,9 @@ from csv import writer
 import requests
 import json
 
+# NOTE!!! STAGE 1 PART 1 - PLAYER PROJECTED POINTS
+# NOTE!!! STAGE 2
+
 # request for per game stats
 # NOTE: CHANGE LINK FOR NEW/CURRENT SEASON
 url = "https://www.basketball-reference.com/leagues/NBA_2022_per_game.html"

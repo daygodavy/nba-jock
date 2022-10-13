@@ -4,6 +4,9 @@ from csv import writer
 import requests
 import json
 
+# NOTE!!! STAGE 1: PART 3 - TEAMS VS POS
+
+
 # check if string is a float
 def is_number(s):
     try:
