@@ -37,7 +37,7 @@ def is_number(s):
 
 
 # creating csv to write player data into
-with open('nba-jock.csv', 'w', encoding='utf8', newline='') as f:
+with open('stage1-part1-stage2.csv', 'w', encoding='utf8', newline='') as f:
   thewriter = writer(f)
   header = ['Player', 'Stage 1: FPS', 'Stage 2']
   thewriter.writerow(header)

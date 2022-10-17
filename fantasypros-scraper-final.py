@@ -100,7 +100,7 @@ fpsVsC = []
 teamNames = scrapeTeamNames(rows)
 
 # creating csv to write player data into
-with open('nba-jock-matchups.csv', 'w', encoding='utf8', newline='') as f:
+with open('stage1-part3.csv', 'w', encoding='utf8', newline='') as f:
   thewriter = writer(f)
   header = ['Team', 'PG', 'SG', 'SF', 'PF', 'C']
   thewriter.writerow(header)

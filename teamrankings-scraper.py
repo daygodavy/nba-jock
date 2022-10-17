@@ -56,13 +56,14 @@ def computeFPS():
 
     rank += 1
 
+
 # ~ OPP TOTAL REB/G
 # url = "https://www.teamrankings.com/nba/stat/opponent-total-rebounds-per-game"
 rows = setUrl("https://www.teamrankings.com/nba/stat/opponent-total-rebounds-per-game")
 computeFPS()
 
-print(stage3FPS)
-print("\n\n")
+# print(stage3FPS)
+# print("\n\n")
 
 # ~ OPP OFF REB %
 rows = setUrl("https://www.teamrankings.com/nba/stat/opponent-offensive-rebounding-pct")
@@ -117,6 +118,23 @@ rows = setUrl("https://www.teamrankings.com/nba/stat/opponent-fta-per-fga")
 computeFPS()
 
 print(stage3FPS)
+print("\n\n")
+
+finalFPS = []
+for key in stage3FPS:
+  stage3FPS[key] = float((stage3FPS[key] / 42) * 100)
+  finalFPS.append([key, stage3FPS[key]])
+
+# res = []
+# for key, val in test_dict.items():
+#     res.append([key] + val)
+# creating csv to write player data into
+with open('stage3.csv', 'w', encoding='utf8', newline='') as f:
+  thewriter = writer(f)
+  header = ['Team', 'Stage 3']
+  thewriter.writerow(header)
+  thewriter.writerows(finalFPS)
+# print(finalFPS)
 
 
 
