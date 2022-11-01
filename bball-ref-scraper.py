@@ -9,7 +9,7 @@ import json
 
 # request for per game stats
 # NOTE: CHANGE LINK FOR NEW/CURRENT SEASON
-url = "https://www.basketball-reference.com/leagues/NBA_2022_per_game.html"
+url = "https://www.basketball-reference.com/leagues/NBA_2023_per_game.html"
 page = requests.get(url)
 
 soup = BeautifulSoup(page.content, 'html.parser')
@@ -142,7 +142,7 @@ with open('stage1-part1-stage2.csv', 'w', encoding='utf8', newline='') as f:
 
 
   # request for advanced stats
-  url = "https://www.basketball-reference.com/leagues/NBA_2022_advanced.html"
+  url = "https://www.basketball-reference.com/leagues/NBA_2023_advanced.html"
   page = requests.get(url)
 
   soup = BeautifulSoup(page.content, 'html.parser')
