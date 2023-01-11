@@ -21,6 +21,7 @@ rows = lists.find_all('tr', class_="full_table")
 jockDict1 = dict()
 jockDict2 = dict()
 playerNames = []
+playerTeams = []
 playerStage1FPS = []
 playerStage2 = []
 playerFinal = []
@@ -39,7 +40,7 @@ def is_number(s):
 # creating csv to write player data into
 with open('stage1-part1-stage2.csv', 'w', encoding='utf8', newline='') as f:
   thewriter = writer(f)
-  header = ['Player', 'Stage 1: FPS', 'Stage 2']
+  header = ['Player', 'Player Team', 'Stage 1: FPS', 'Stage 2']
   thewriter.writerow(header)
 
   # STAGE 1:
@@ -76,11 +77,14 @@ with open('stage1-part1-stage2.csv', 'w', encoding='utf8', newline='') as f:
       if is_number(playerTOPG):
         playerTOPG = float(playerTOPG) * (-0.5)
 
+      playerTeam = row.find('td', {'data-stat' : 'team_id'}).text
+
       fps = playerPPG + playerRPG + playerAPG + playerBPG + playerSPG + player3PMPG + playerTOPG
       stageScore1 = [playerName, fps]
       jockDict1[playerName] = [fps]
       # thewriter.writerow(stageScore1)
-
+      # print(playerName + ": " + playerTeam)
+      playerTeams.append(playerTeam)
       playerNames.append(playerName)
       playerStage1FPS.append(fps)
       
@@ -255,9 +259,15 @@ with open('stage1-part1-stage2.csv', 'w', encoding='utf8', newline='') as f:
 
       playerStage2.append(stageScore2)
 
+  print(len(playerStage2))
+  print(len(playerTeams))
+
+
       # print(info)
-  playerFinal = list(zip(playerNames, playerStage1FPS, playerStage2))
+  playerFinal = list(zip(playerNames, playerTeams, playerStage1FPS, playerStage2))
+  
   # print(list(playerFinal))
+  # print(playerFinal)
 
   for player in playerFinal:
     thewriter.writerow(player)
