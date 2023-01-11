@@ -13,10 +13,60 @@ soup = BeautifulSoup(page.content, 'html.parser')
 
 lists = soup.find_all('div', class_="container-fluid p-2 m-2 float-left")
 
+currDayMatchups = []
+
+
 for row in lists:
   matchup = row.find('th').text.strip()
   # print(matchup)
-  print(matchup[:9])
+  homeTeam = matchup[0:3]
+  awayTeam = matchup[6:9]
+  currDayMatchups.append([homeTeam, awayTeam])
+  # print(matchup[:9])
+  # print(matchup[0:3])
+  # print(matchup[6:9])
+  
+print(currDayMatchups)
+  
+
+
+
+
+
+
+
+
+#! ATL	- Atlanta Hawks
+#! BOS	- Boston Celtics
+#! CHA	- Charlotte Hornets
+#! CHI	- Chicago Bulls
+#! CLE	- Cleveland Cavaliers
+#! DAL	- Dallas Mavericks
+#! DEN	- Denver Nuggets
+#! DET	- Detroit Pistons
+#! GSW	- Golden State Warriors
+#! HOU -	Houston Rockets
+#! IND	- Indiana Pacers
+#! LAC -	Los Angeles Clippers
+#! LAL	- Los Angeles Lakers
+#! MEM	- Memphis Grizzlies
+#! MIA	- Miami Heat
+#! MIL	- Milwaukee Bucks
+#! MIN	- Minnesota Timberwolves
+#! NOP	- New Orleans Pelicans
+#! NYK	- New York Knicks
+#! BKN	- Brooklyn Nets
+#! OKC	- Oklahoma City Thunder
+#! ORL	- Orlando Magic
+#! PHI	- Philadelphia 76ers
+#! PHO	- Phoenix Suns
+#! POR	- Portland Trail Blazers
+#! SAC	- Sacramento Kings
+#! SAS - San Antonio Spurs
+#! TOR	- Toronto Raptors
+#! UTH	- Utah Jazz
+#! WAS	- Washington Wizards
+
 
 # def setUrl(link):
 #   page = requests.get(link)
