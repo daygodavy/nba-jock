@@ -78,6 +78,8 @@ with open('stage1-part1-stage2.csv', 'w', encoding='utf8', newline='') as f:
         playerTOPG = float(playerTOPG) * (-0.5)
 
       playerTeam = row.find('td', {'data-stat' : 'team_id'}).text
+      if playerTeam == 'CHO':
+        playerTeam = 'CHA'
 
       fps = playerPPG + playerRPG + playerAPG + playerBPG + playerSPG + player3PMPG + playerTOPG
       stageScore1 = [playerName, fps]
@@ -258,9 +260,6 @@ with open('stage1-part1-stage2.csv', 'w', encoding='utf8', newline='') as f:
       # thewriter.writerow(info)
 
       playerStage2.append(stageScore2)
-
-  print(len(playerStage2))
-  print(len(playerTeams))
 
 
       # print(info)

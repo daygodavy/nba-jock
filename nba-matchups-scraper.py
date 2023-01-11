@@ -21,6 +21,11 @@ for row in lists:
   # print(matchup)
   homeTeam = matchup[0:3]
   awayTeam = matchup[6:9]
+
+  if homeTeam == 'NOR':
+    homeTeam = 'NOP'
+  elif awayTeam == 'NOR':
+    awayTeam = 'NOP'
   currDayMatchups.append([homeTeam, awayTeam])
   # print(matchup[:9])
   # print(matchup[0:3])
@@ -32,6 +37,13 @@ print(currDayMatchups)
 
 
 
+# creating csv to write player data into
+with open('daily-matchups.csv', 'w', encoding='utf8', newline='') as f:
+  thewriter = writer(f)
+  header = ['Home Team', 'Away Team']
+  thewriter.writerow(header)
+  for team in currDayMatchups:
+    thewriter.writerow(team)
 
 
 
